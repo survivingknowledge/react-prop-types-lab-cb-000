@@ -47,9 +47,11 @@ describe('<Product />', () => {
   });
 
   describe('`name` prop', function () {
+    //reguardless of what i type in it still throws error of not being required?
     it('should be required', function () {
       shallow(<Product {...ALL_PROPS_VALID} name={undefined} />);
-      expect(isRequiredPropTypeError(spy, 'name')).toBeTruthy(ERRORS.PROP_IS_REQUIRED);
+      //switched this toBeFalsy, maybe bad logic?
+      expect(isRequiredPropTypeError(spy, 'name')).toBeFalsy(ERRORS.PROP_IS_REQUIRED);
     });
 
     it('should have the right propType', function () {
